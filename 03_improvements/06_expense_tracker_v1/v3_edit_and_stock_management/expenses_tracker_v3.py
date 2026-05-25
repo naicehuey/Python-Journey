@@ -99,7 +99,6 @@ def edit_expense():
         choose = int(input("Which product you wanna edit: "))
         index = choose - 1
 
-        # Use contents[index] not content!
         name, price, stock, total = contents[index].strip().split("|")
 
         choice = int(input(
