@@ -43,7 +43,7 @@ def delete_acc():
         logged_in = None
         lines()
         print("Account deleted successfully.")
-        # No need to call logged_out() — already handled above
+       
     else:
         print("No account logged in")
 
@@ -83,7 +83,7 @@ def withdraw():
                 print(f"New Balance: {logged_in['balance']}")
                 save_account(accounts)
             else:
-                print("Insufficient funds!")  # ← Fixed!
+                print("Insufficient funds!")
     else:
         print("No account logged in")
 
@@ -122,7 +122,7 @@ def load_menu():
             menu = [
                 "1. New Account",
                 "2. Login",
-                "3. Exit"   # ← Fixed typo!
+                "3. Exit"  
             ]
 
             for item in menu:
@@ -162,7 +162,7 @@ def load_menu():
                         action.get(option, invalid_option)()
 
                         if option == 3 or option == 4:
-                            break   # ← Combined into one clean check!
+                            break
 
             else:
                 lines()
