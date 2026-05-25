@@ -37,7 +37,7 @@ def sum_stock():
         choice = int(input("Choose Expense: "))
         index = choice - 1
 
-        # Use contents[index] not content!
+       
         name, price, old_stock, old_total = contents[index].strip().split("|")
 
         option = int(input(
@@ -53,7 +53,7 @@ def sum_stock():
             new_stock = add + old_stock
             new_total = price * new_stock
             stock_time = f"{name}|{price}|{new_stock}|{new_total}\n"
-            contents[index] = stock_time  # ← Now after stock_time is defined!
+            contents[index] = stock_time
 
         elif option == 2:
             sub = int(input("How many stocks do you wanna remove: "))
@@ -66,7 +66,7 @@ def sum_stock():
                 new_stock = old_stock - sub
                 new_total = price * new_stock
                 stock_time = f"{name}|{price}|{new_stock}|{new_total}\n"
-                contents[index] = stock_time  # ← Now after stock_time is defined!
+                contents[index] = stock_time
         
         else:
             print("Wrong option")
@@ -130,7 +130,7 @@ def edit_expense():
             print("Wrong Option")
             return
 
-        contents[index] = new_product  # ← Now after new_product is defined!
+        contents[index] = new_product
 
         with open("expense.txt", "w") as file:
             for content in contents:
@@ -171,7 +171,7 @@ def total_expense():
 
         total = 0
         for content in contents:
-            _, exp_price, _, _ = content.strip().split("|")  # ← 4 fields!
+            _, exp_price, _, _ = content.strip().split("|") 
             total += int(exp_price)
 
         print(f"Expenses Total Cost: MWK {total}")
@@ -185,8 +185,8 @@ def load_menu():
             menu = [
                 "1. Add Expense",
                 "2. View Expenses",
-                "3. Edit Expense",   # ← Fixed comma!
-                "4. Clear Expenses", # ← Fixed number!
+                "3. Edit Expense",  
+                "4. Clear Expenses",
                 "5. Total Expenses Spent",
                 "6. Update Stock",
                 "7. Exit"
