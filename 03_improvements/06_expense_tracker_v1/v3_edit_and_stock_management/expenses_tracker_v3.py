@@ -150,7 +150,7 @@ def remove_expense():
         contents = file.readlines()
 
     for i, content in enumerate(contents, start=1):
-        product, _, _, _ = content.strip().split("|")  # ← 4 fields now!
+        product, _, _, _ = content.strip().split("|")
         print(f"{i}. {product}")
 
     chose = int(input("Which expense you wanna remove: "))
