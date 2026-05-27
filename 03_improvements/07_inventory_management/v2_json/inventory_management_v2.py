@@ -100,7 +100,10 @@ def edit_inventory(inventory):
 
         index = ask - 1
 
-        print("Which section do you wish to edit.\n1. Product Name. \n2. Product Prices. \n3. Product Stock Unit. \n4. Product Category")
+        print("Which section do you wish to edit.\n"
+              "1. Product Name. \n2. Product Prices.\n"
+              "3. Product Stock Unit.\n"
+              "4. Product Category")
         input1 = int(input("Choose Option: "))
         if input1 not in (1, 2, 3, 4):
             print("Wrong Input")
@@ -110,15 +113,15 @@ def edit_inventory(inventory):
             xput = input("Change name: ").strip()
             inventory[index].update({"name": xput})
 
-        if input1 == 2:
+        elif input1 == 2:
             xput = input("Change Price: ").strip()
             inventory[index].update({"price": xput})
 
-        if input1 == 3:
+        elif input1 == 3:
             xput = int(input("Change Stock Unit: "))
             inventory[index].update({"stock": xput})
 
-        if input1 == 4:
+        else:
             xput = input("Change Category: ").strip()
             inventory[index].update({"category": xput})
 
