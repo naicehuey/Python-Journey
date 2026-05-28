@@ -11,10 +11,10 @@ if a == "fruits":
     print(fruits)
     choose = input("Guess my choice: ").lower()
     pc = random.choice(fruits)
-    if choose == pc:
+    if int(choose) == pc:
         print("You win")
     else:
-        print("This is my choice " + pc)
+        print("This is my choice " + str(pc))
         print("You Lose, Try again")
 
 elif a == "numbers":
