@@ -9,23 +9,39 @@ def add_drug():
     print(f"{add_drug} is the new drug added.\nHere is the new list {drugslist}")
 
 def sell_drug():
-    meds = input("what you wanna buy?: ").lower()
-    for drug, units in drugslist:
+    meds = input("What you wanna buy?: ").lower()
+    for i, (drug, units) in enumerate(drugslist):
         if meds == drug.lower():
             number = int(input("How many you wanna buy?: "))
-            drugs = [(meds, units - number)] 
-            print(drugs)
-            quit() 
+            if number > units:
+                print("Not enough stock!")
+                return
+            new_units = units - number
+            drugslist[i] = (drug, new_units)
+            print(f"Sold {number} of {drug}")
+            print(f"Remaining stock: {new_units}")
+            return
+    print("Medicine not found")
 
 def check_stock():
     print("Here is our current stock lineup:")
-    for i, drugslist in enumerate(drugslist, start=1):
-        print(f"{i}. {drugslist}")
+    for i, drug in enumerate(drugslist, start=1):
+        print(f"{i}. {drug}")
 
 def remove_drug():
-    buy_drugs = input(f"Here is the drugs list: {drugslist}.\n Which drugs do you wanna buy? ")
-    drugslist.remove(buy_drugs)
-    print(f"Here is what we have now :{drugslist} \nAnd we are out of {buy_drugs} now, That was the last one.")
+    print("Here is the drugs list:")
+    for i, (drug, units) in enumerate(drugslist, start=1):
+        print(f"{i}. {drug} - {units} units")
+    
+    choose = int(input("Which drug number do you wanna remove: "))
+    index = choose - 1
+    
+    if index < 0 or index >= len(drugslist):
+        print("Invalid choice")
+        return
+    
+    removed = drugslist.pop(index)
+    print(f"{removed[0]} has been removed.")
     
 def invalid_option():
     print("Error 101: This option does not exist.")
