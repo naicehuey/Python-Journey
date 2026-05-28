@@ -19,7 +19,7 @@ def send_message():
 def view_history():
         with open("history.txt", "r") as file:
             contents = file.readlines()
-            if contents == "":
+            if not contents:
                 print("History Is Empty")
             else:
                 print("Here is all your chat history:")
