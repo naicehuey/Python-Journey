@@ -16,10 +16,9 @@ def complete_task():
 
         number =  int(input("Which task are you done with: "))
         index = number - 1
-         
-        chose = tasks[index]
-        print(f"[x] - {chose}")
-        print("Task has been completed")
+        chose = tasks[index].strip()
+        tasks[index] = f"[x] {chose}\n"
+        print(f"Task has been completed: \n[x] - {chose}")
         with open("task.txt", "w") as file:
             for task in tasks:
                 file.write(task)
