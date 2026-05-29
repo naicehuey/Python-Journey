@@ -14,7 +14,7 @@ def load_contacts():
 def add_contact():
     name = input("Name: ")
     number = input(("Number: "))
-
+    
     contact= f"{name}|{number}"
 
     save_contacts(contact)
